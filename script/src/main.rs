@@ -1,5 +1,7 @@
 //! A simple script to generate and verify the proof of a given program.
 
+use std::{fs::File, io::Write};
+
 use sp1_sdk::{ProverClient, SP1Stdin};
 
 const ELF: &[u8] = include_bytes!("../../program/elf/riscv32im-succinct-zkvm-elf");
@@ -29,5 +31,10 @@ fn main() {
         .save("proof-with-io.json")
         .expect("saving proof failed");
 
-    println!("successfully generated and verified proof for the program!")
+    println!("successfully generated and verified proof for the program!");
+
+    let mut file = File::create("done.verifying").unwrap();
+    let buf_file = "successfully generated and verified proof for the program!";
+
+    file.write_all(buf_file.as_bytes()).unwrap();
 }
