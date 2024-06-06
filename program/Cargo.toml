@@ -1,0 +1,10 @@
+[workspace]
+[package]
+version = "0.1.0"
+name = "lambda-sp1-prover-program"
+edition = "2021"
+
+[dependencies]
+sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git", branch = "main" }
+lambdaworks-plonk = { git = "https://github.com/lambdaclass/lambdaworks.git", branch = "main" }
+lambdaworks-math = { git = "https://github.com/lambdaclass/lambdaworks.git", branch = "main" }
