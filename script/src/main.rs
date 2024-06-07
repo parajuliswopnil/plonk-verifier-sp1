@@ -10,15 +10,6 @@ fn main() {
     // Generate proof.
     let mut stdin = SP1Stdin::new();
     let n = 2u64;
-
-    let file = File::open("/Users/swopnilparajuli/playground/lambdaworks/provers/plonk/src/proof.proof").unwrap();
-    let mut buffer = BufReader::new(file);
-    let mut proof_read: Vec<u8>= Vec::new();
-
-    buffer.read_to_end(&mut proof_read).unwrap();
-
-    println!("{:?}", proof_read);
-
     stdin.write(&n);
     let client = ProverClient::new();
     let (pk, vk) = client.setup(ELF);
