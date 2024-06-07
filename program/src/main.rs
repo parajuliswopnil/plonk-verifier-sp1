@@ -3,7 +3,7 @@
 #![no_main]
 
 use lambdaworks_math::field::element::FieldElement;
-use lambdaworks_plonk::{prover::Prover, setup::{setup, Witness}, test_utils::{circuit_1::{test_common_preprocessed_input_1, test_witness_1}, utils::{test_srs, TestRandomFieldGenerator, KZG}}, verifier::{self, Verifier}};
+use lambdaworks_plonk::{prover::Prover, setup::setup, test_utils::{circuit_1::{test_common_preprocessed_input_1, test_witness_1}, utils::{test_srs, TestRandomFieldGenerator, KZG}}, verifier::Verifier};
 sp1_zkvm::entrypoint!(main);
 
 pub fn main() {
