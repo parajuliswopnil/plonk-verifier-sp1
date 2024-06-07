@@ -11,11 +11,13 @@ pub fn main() {
     // resulting in output that doesn't match fibonacci sequence.
     // However, the resulting proof will still be valid!
 
+    let n = sp1_zkvm::io::read::<u64>();
+
     let common_preprocessed_input = test_common_preprocessed_input_1();
     let srs = test_srs(common_preprocessed_input.n);
 
     // public input 
-    let x = FieldElement::from(4_u64);
+    let x = FieldElement::from(n);
     let y = FieldElement::from(12_u64);
 
     // private variable 
@@ -33,14 +35,5 @@ pub fn main() {
     let verifier = Verifier::new(kzg);
     assert!(verifier.verify(&proof, &public_input, &common_preprocessed_input, &verifying_key));
 
-
-    // let n = sp1_zkvm::io::read::<u32>();
-    // let mut a: u128 = 0;
-    // let mut b: u128 = 1;
-    // let mut sum: u128;
-    // for _ in 1..n {
-    //     sum = a + b;
-    //     a = b;
-    //     b = sum;
-    // }
+    sp1_zkvm::io::commit(&n);
 }
